@@ -9,6 +9,10 @@ header > h1 {
     padding-top: 1.5rem;
 }
 
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
 #root {
     margin: 0 auto;
     max-width: 1200px;

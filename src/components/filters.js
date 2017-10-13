@@ -25,7 +25,7 @@ export default class Filters extends React.Component {
                     </select>
                 </li>
                 <li>
-                    <button onClick={this.props.refresh}>Reset</button>
+                    <button onClick={this.props.refresh}>Reload</button>
                 </li>
             </ul>
         )

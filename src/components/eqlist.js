@@ -9,7 +9,10 @@ class Eqlist extends React.Component {
     getMagLevel(mag) {
         let levels = [
             {level: 'green', color: '#2ecc71', min: -1, max: 2.5},
-            {level: 'orange', color: '#f39c12', min: 2.5, max: 5.4}
+            {level: 'orange', color: '#f39c12', min: 2.5, max: 5.4},
+            {level: 'red', color: '#c0392b', min: 5.4, max: 6},
+            {level: 'purble', color: '#9C27B0', min: 6, max: 6.9},
+            {level: 'black', color: '#9C27B0', min: 7, max: 8}
         ];
 
         return levels.filter(item => mag >= item.min && mag < item.max);

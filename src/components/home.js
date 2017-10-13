@@ -1,16 +1,16 @@
 import React from 'react';
 import Pace from 'react-pace-progress'
 
-import Filters from './components/filters';
-import Eqlist from './components/eqlist';
-import Panel from './components/panel';
-import helpers from './utils/helpers';
+import Filters from './filters';
+import Eqlist from './eqlist';
+import Panel from './panel';
+import helpers from '../utils/helpers';
 
 import _ from 'lodash';
 import 'normalize.css';
-import './style/index.css';
+import '../style/index.css';
 
-export default class App extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,9 +48,6 @@ export default class App extends React.Component {
     }
 
     refresh() {
-        this.setState({
-            eqfeed: []
-        });
         this.fetch();
     }
 
@@ -111,18 +108,6 @@ export default class App extends React.Component {
            <div>
 
                {this.state.isLoading ? <Pace color="#E91E63"/> : null}
-
-               <header>
-                   <h1>Worldwide Earthquake Information (Last 24 Hours)</h1>
-               </header>
-
-               <nav>
-                   <ul className="view-filter">
-                       <li>List View</li>
-                       <li>Chart View</li>
-                       <li>Map View</li>
-                   </ul>
-               </nav>
 
                <section id="filters">
                    <Filters orderby={this.orderby.bind(this)} refresh={this.refresh.bind(this)} />
