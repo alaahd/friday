@@ -6,14 +6,16 @@ import Panel from './panel'
 import Home from './home'
 import helpers from '../utils/helpers'
 
-import _ from 'lodash'
 import 'normalize.css'
 import '../style/index.css'
 
 export default class Eqchart extends Home {
 
     fetch() {
-        this.setState({isLoading: true});
+        this.setState({
+            isLoading: true,
+            canvasready: false
+        });
         helpers.getEarthQuickData(this.state.url)
             .then(function(jsonData){
                 console.info('New fetch for data at: ' + new Date());
@@ -35,11 +37,16 @@ export default class Eqchart extends Home {
     }
 
     renderChart() {
+
+        this.setState({
+            canvasready: true
+        });
+
         let ctx = "myChart";
         let mags = this.state.eqfeed.map(item => item.properties.mag)
         let hrs = this.state.eqfeed.map(item => new Date(item.properties.time).getHours())
 
-        let myChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'line',
             data: {
                 labels: hrs,
@@ -92,7 +99,6 @@ export default class Eqchart extends Home {
     render() {
         return (
             <div>
-
                 {this.state.isLoading ? <Pace color="#E91E63"/> : null}
 
                 <section id="filters">
@@ -105,7 +111,7 @@ export default class Eqchart extends Home {
                     </aside>
 
                     <main>
-                        <canvas id="myChart" width="1000" height="400"></canvas>
+                        {this.state.canvasready ? <canvas ref="myChart" id="myChart" width="1000" height="400"></canvas> : null}
                     </main>
                 </section>
             </div>

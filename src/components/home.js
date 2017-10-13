@@ -7,8 +7,7 @@ import Panel from './panel';
 import helpers from '../utils/helpers';
 
 import _ from 'lodash';
-import 'normalize.css';
-import '../style/index.css';
+
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -62,8 +61,6 @@ export default class Home extends React.Component {
         this.setState({
             eqfeed : _.orderBy(this.state.eqfeed, [function(o) { return o.properties.mag }], [ord])
         });
-
-
     }
 
     getMaxMag() {

@@ -4,6 +4,9 @@ import Home from './home'
 import Eqchart from './chart'
 import Eqmap from './map'
 
+import 'normalize.css';
+import '../style/index.css';
+
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster

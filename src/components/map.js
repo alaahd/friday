@@ -7,8 +7,7 @@ import Home from './home'
 import helpers from '../utils/helpers'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import _ from 'lodash'
-import '../style/index.css'
+
 
 export default class Eqmap extends Home {
 
