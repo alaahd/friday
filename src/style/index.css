@@ -20,6 +20,7 @@ nav a {
 
 main {
     display: block;
+    position: relative;
 }
 
 section#main {
@@ -147,6 +148,8 @@ ul.view-filter {
     display: block;
     color: #fff;
 }
+
+#map { position:absolute; top:0; bottom:0; width:100%; }
 
 .mag-holder {
     background: #ecf0f1;

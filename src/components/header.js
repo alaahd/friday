@@ -10,7 +10,7 @@ const Header = () => (
             <ul className='view-filter'>
                 <li><Link to="/">List View</Link></li>
                 <li><Link to="/chart">Chart View</Link></li>
-                <li>Map View</li>
+                <li><Link to="/map">Mao View</Link></li>
             </ul>
         </nav>
     </div>
