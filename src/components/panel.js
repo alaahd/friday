@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+import Test from './test'
 
 export default class Panel extends React.Component {
 
@@ -81,4 +83,9 @@ export default class Panel extends React.Component {
             </div>
         )
     }
+}
+
+Panel.propTypes = {
+    autoupdate: PropTypes.func.isRequired,
+    mags: PropTypes.object.isRequired
 }

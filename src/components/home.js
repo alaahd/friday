@@ -13,7 +13,7 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            url: 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson',
+            url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson',
             eqfeed: [],
             autorefresh: 10,
             isLoading: true

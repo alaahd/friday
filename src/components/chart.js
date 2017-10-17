@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Pace from 'react-pace-progress'
 import Filters from './filters'
 import Chart from 'chart.js'
@@ -12,9 +13,11 @@ import '../style/index.css'
 export default class Eqchart extends Home {
 
     fetch() {
+        //Before calling render remove the chart from the dom
+        ReactDOM.unmountComponentAtNode(document.getElementById('eqchart'));
+
         this.setState({
-            isLoading: true,
-            canvasready: false
+            isLoading: true
         });
         helpers.getEarthQuickData(this.state.url)
             .then(function(jsonData){
@@ -32,16 +35,16 @@ export default class Eqchart extends Home {
             }.bind(this))
     }
 
+    componentWillMount() {
+        console.log('componentWillMount');
+    }
+
     refresh() {
         this.fetch();
     }
 
     renderChart() {
-
-        this.setState({
-            canvasready: true
-        });
-
+        ReactDOM.render(<Eqzchart />, document.getElementById('eqchart'));
         let ctx = "myChart";
         let mags = this.state.eqfeed.map(item => item.properties.mag)
         let hrs = this.state.eqfeed.map(item => new Date(item.properties.time).getHours())
@@ -110,11 +113,12 @@ export default class Eqchart extends Home {
                         <Panel autoupdate={this.autoUpdate.bind(this)} mags={{max: this.getMaxMag(), min: this.getMinMag()}} />
                     </aside>
 
-                    <main>
-                        {this.state.canvasready ? <canvas ref="myChart" id="myChart" width="1000" height="400"></canvas> : null}
-                    </main>
+                    <main id="eqchart"></main>
+
                 </section>
             </div>
         )
     }
 }
+
+const Eqzchart = () => <canvas id="myChart" width="1000" height="400"></canvas>
